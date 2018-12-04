@@ -1,10 +1,18 @@
-import java.util.Random;
-
 public class Main {
 
+    public void changeValue(Value val ){
+        val.x = 10;
+    }
+
     public static void main(String[] args) {
-        Random rzut = new Random();
-        int wynik = rzut.nextInt(6)+1;
-        System.out.println(wynik);
+        Main t = new Main();
+        Value wartosc = new Value();
+        wartosc.x = 5;
+        t.changeValue(wartosc);
+        System.out.println(wartosc.x);
+    }
+
+    static class Value{
+        int x;
     }
 }

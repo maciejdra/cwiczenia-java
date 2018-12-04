@@ -1,6 +1,10 @@
+import java.util.Random;
+
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Random rzut = new Random();
+        int wynik = rzut.nextInt(6)+1;
+        System.out.println(wynik);
     }
 }

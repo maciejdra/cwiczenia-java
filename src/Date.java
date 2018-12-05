@@ -4,7 +4,6 @@ public class Date {
 
     public  Date(){
 
-
     }
 
     public Date(int year, int month, int day){
@@ -15,9 +14,9 @@ public class Date {
 
     }
 
-    public void getInfo(){
+    public String getInfo(){
 
-        System.out.println("Rok " +year + " Miesiac " +month+ " Dzien " +day);
+        return " " +year+ " " +month+ " " +day+ " ";
 
     }
 }

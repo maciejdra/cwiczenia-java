@@ -1,23 +1,26 @@
-import Datka.Date;
-
-import static java.lang.Math.PI;
-import static java.lang.Math.sin;
-
 public class Main {
+
     public static void main(String[] args) {
 
-        Datka.Date data = new Date();
+        Date start = new Date(2015, 7, 23);
+        Date end = new Date(2017, 7, 11);
 
-        java.util.Date data1 = new java.util.Date();
+        Date today = new Date();
 
-        System.out.println(data);
-        System.out.println(data1);
+        today = start;
 
-        System.out.println(PI);
-        System.out.println(sin(45));
+        start.getInfo();
 
-        System.out.println(Math.sin(PI * 45 /180));
-        System.out.println(sin(PI * 45 /180));
+        today.getInfo();
 
+        today.year = 2016;
+        today.day = 17;
+
+        today.getInfo();
+        start.getInfo();
+
+        end = today;
+
+        end.getInfo();
     }
 }

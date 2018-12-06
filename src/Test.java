@@ -18,7 +18,10 @@ public class Test {
         to.addCustomer(customer1);
         to.addCustomer(customer2);
 
-        System.out.println(to);
+        System.out.println(customer1);
+        System.out.println(customer2);
+
+        //System.out.println(to);
 
     }
 }

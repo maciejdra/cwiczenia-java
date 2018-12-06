@@ -14,8 +14,6 @@ public class Trip {
 
     public String getInfo (){
 
-        //String info = start.getInfo()+end.getInfo() + "Destination"+destination;
         return "Start " +start.getInfo()+ " end " +end.getInfo()+ "Destination "+destination;
-        //return info;
     }
 }

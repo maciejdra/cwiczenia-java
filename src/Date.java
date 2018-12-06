@@ -1,10 +1,6 @@
 public class Date {
 
-    int year, month, day;
-
-    public  Date(){
-
-    }
+    private int year, month, day;
 
     public Date(int year, int month, int day){
 
@@ -14,9 +10,12 @@ public class Date {
 
     }
 
-    public String getInfo(){
-
-        return " " +year+ " " +month+ " " +day+ " ";
-
+    @Override
+    public String toString() {
+        return "Date{" +
+                "year=" + year +
+                ", month=" + month +
+                ", day=" + day +
+                '}';
     }
 }

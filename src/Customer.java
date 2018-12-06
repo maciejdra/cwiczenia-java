@@ -1,8 +1,8 @@
 public class Customer {
 
-    String name;
-    public Address address;
-    public Trip trip;
+    private String name;
+    private Address address;
+    private Trip trip;
 
     public Customer(String name){
 
@@ -10,20 +10,21 @@ public class Customer {
 
     }
 
-    public void setAddress(Address address){
 
+    public void setAddress(Address address) {
         this.address = address;
-
     }
 
-    public void assignTrip(Trip trip){
-
+    public void setTrip(Trip trip) {
         this.trip = trip;
-
     }
 
-    public String getInfo(){
-
-        return "Name "+name+ " Adress " +address.getInfo()+ " Trip" +trip.getInfo();
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "name='" + name + '\'' +
+                ", address=" + address +
+                ", trip=" + trip +
+                '}';
     }
 }

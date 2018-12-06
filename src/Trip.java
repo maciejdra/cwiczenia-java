@@ -1,19 +1,30 @@
 public class Trip {
 
-    public Date start;
-    public Date end;
-    String destination;
+    private Date start;
+    private Date end;
+    private String destination;
+    private double price;
 
-    public Trip (Date start, Date end, String destination){
+    public Trip (Date start, Date end, String destination, double price){
 
         this.start = start;
         this.end = end;
         this.destination = destination;
+        this.price = price;
 
     }
 
-    public String getInfo (){
+    public double getPrice() {
+        return price;
+    }
 
-        return " Start " +start.getInfo()+ " end " +end.getInfo()+ "Destination "+destination;
+    @Override
+    public String toString() {
+        return "Trip{" +
+                "start=" + start +
+                ", end=" + end +
+                ", destination='" + destination + '\'' +
+                ", price=" + getPrice() +
+                '}';
     }
 }

@@ -24,27 +24,27 @@ public class TravelOffice {
     }
 
     public static void main(String[] args) {
-        // utworz biuro podrozy
+
         TravelOffice to = new TravelOffice();
 
-        // budujemy wycieczke
-        Trip trip = new Trip(new Date(2017, 8, 1), new Date(2017, 8, 15), "Egipt");
+        Date start = new Date(2015,7,23);
+        Date end = new Date(2015,7,25);
+        Trip trip = new Trip(start, end,  "Lodz");
 
-        // budujemy pierwszego klienta
-        Customer customer = new Customer("Jan Kowalski");
-        customer.setAddress(new Address("Marszalkowska 10", "00-876", "Warszawa"));
+        Customer customer = new Customer("Maciej");
+        customer.setAddress(new Address("Krzemieniecka 18A", "59-300", "Lubin"));
         customer.assignTrip(trip);
-        to.addCustomer(customer); // dodajemy go do biura
+        to.addCustomer(customer);
 
-        customer = new Customer("Jozef Nowak");
-        customer.setAddress(new Address("Al. Jerozolimskie 120", "00-345", "Warszawa"));
+        customer = new Customer("Artur");
+        customer.setAddress(new Address("Kowale 22", "62-700", "Turek"));
         customer.assignTrip(trip);
-        to.addCustomer(customer); // dodajemy go do biura
+        to.addCustomer(customer);
 
-        customer = new Customer("Jaroslaw Lis");
-        customer.setAddress(new Address("Swietokrzyska 14", "00-666", "Warszawa"));
+        customer = new Customer("Maciej");
+        customer.setAddress(new Address("Goszczanow", "77-554", "Goszczanow"));
         customer.assignTrip(trip);
-        to.addCustomer(customer); // dodajemy go do biura
+        to.addCustomer(customer);
 
         System.out.println(to.getInfo());
     }

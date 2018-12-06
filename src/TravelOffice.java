@@ -1,68 +1,51 @@
 public class TravelOffice {
+    int customerCount = 0;
+    Customer customers[] = new Customer[2];
 
-    public static int customerCount = 0;
-    public static Customer[] tab = new Customer[2];
+    public void addCustomer(Customer customer) {
+        if (customerCount == customers.length) {
+            Customer temp[] = new Customer[customers.length + 2];
+            System.arraycopy(customers, 0, temp, 0, customers.length);
+            customers = temp;
+        }
+        customers[customerCount++] = customer;
+    }
+
+    public int getCustomerCount() {
+        return customerCount;
+    }
+
+    public String getInfo() {
+        String report = "";
+        for (int i = 0; i < customerCount; i++) {
+            report += customers[i].getInfo() + "\n";
+        }
+        return report;
+    }
 
     public static void main(String[] args) {
+        // utworz biuro podrozy
+        TravelOffice to = new TravelOffice();
 
-        int customerCount = 0;
-        Customer[] tab = new Customer[2];
+        // budujemy wycieczke
+        Trip trip = new Trip(new Date(2017, 8, 1), new Date(2017, 8, 15), "Egipt");
 
-        Date start = new Date(2015, 7, 23);
-        Date end = new Date(2017, 7, 11);
+        // budujemy pierwszego klienta
+        Customer customer = new Customer("Jan Kowalski");
+        customer.setAddress(new Address("Marszalkowska 10", "00-876", "Warszawa"));
+        customer.assignTrip(trip);
+        to.addCustomer(customer); // dodajemy go do biura
 
-        Address address = new Address("Krzemieniecka","59-300", "Lubin");
-        //Customer customer = new Customer("Maciej");
-        Trip trip = new Trip(start, end, "Lodz");
+        customer = new Customer("Jozef Nowak");
+        customer.setAddress(new Address("Al. Jerozolimskie 120", "00-345", "Warszawa"));
+        customer.assignTrip(trip);
+        to.addCustomer(customer); // dodajemy go do biura
 
-        Customer ob = new Customer("Maciej");
-        Customer ob2 = new Customer("Ola");
-        Customer ob3 = new Customer("Dawid");
+        customer = new Customer("Jaroslaw Lis");
+        customer.setAddress(new Address("Swietokrzyska 14", "00-666", "Warszawa"));
+        customer.assignTrip(trip);
+        to.addCustomer(customer); // dodajemy go do biura
 
-        ob.assignTrip(trip);
-        ob2.assignTrip(trip);
-        ob3.assignTrip(trip);
-
-        ob.setAddress(address);
-        ob2.setAddress(address);
-        ob3.setAddress(address);
-
-        addCustomer(ob);
-        addCustomer(ob2);
-        addCustomer(ob3);
-
-        //customer.assignTrip(trip);
-        //customer.setAddress(address);
-
-        //System.out.println(customer.getInfo());
-
-        showTable();
-
-    }
-
-    public static void addCustomer(Customer customer){
-
-        if(customerCount + 1 > tab.length){
-
-            Customer[] tablica = new Customer[customerCount + 1];
-            for(int i = 0; i < tab.length; i++){
-                tablica[i] = tab[i];
-
-            }
-
-            tab = tablica;
-        }
-
-        tab[customerCount] = customer;
-        customerCount++;
-    }
-
-
-    public static void showTable () {
-
-        for (int i = 0; i<tab.length;i++){
-            System.out.println("Elementy w tablicy \n"+tab[i].getInfo());
-        }
-        System.out.println(customerCount);
+        System.out.println(to.getInfo());
     }
 }

@@ -9,8 +9,8 @@ public class Test {
         Customer customer1 = new Customer("Maciej");
         Customer customer2 = new Customer("Filip");
 
-        DomesticTrip domeseticTrip = new DomesticTrip(new Date(2018, 12, 15), new Date(2019, 1, 14), "Wroclaw",1000,200);
-        AbroadTrip abroadTrip = new AbroadTrip(new Date(2018, 12, 15), new Date(2019, 1, 14), "Warszawa",1000,100);
+        DomesticTrip domeseticTrip = new DomesticTrip(new Date(2018, 6, 15), new Date(2018, 6, 25), "Wroclaw",1000,200);
+        AbroadTrip abroadTrip = new AbroadTrip(new Date(2018, 11, 15), new Date(2018, 11, 19), "Warszawa",1000,100);
 
         customer1.setTrip(domeseticTrip);
         customer2.setTrip(abroadTrip);

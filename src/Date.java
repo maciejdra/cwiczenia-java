@@ -16,17 +16,20 @@ public class Date {
 
     }
 
-    public static Date checkString(String s, String div{
-        StringTokenizer parser = new StringTokenizer(s);
-        Date date = new Date();
+    public static Date checkString(String string, String punctuation){
 
-        int counter = 0;
+        String[] data = string.split(punctuation);
+        if(data.length !=3) {
 
-        while (parser.hasMoreTokens()){
-
-            String token = parser.nextToken();
+            return null;
 
         }
+
+        int year = Integer.parseInt(data[0]);
+        int month = Integer.parseInt(data[1]);
+        int day = Integer.parseInt(data[2]);
+        return new Date(year, month, day);
+
     }
 
     @Override

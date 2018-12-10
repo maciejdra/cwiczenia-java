@@ -13,44 +13,41 @@ public class TravelOffice {
 
     void showTrip(){
 
-        for (Customer cs : customers){
-            System.out.println(cs.toString());
+        for (Customer c : customers){
+            System.out.println(c.toString());
         }
     }
 
-    void addTrip(String name, Trip trip){
+    void addTrip(String id, Trip trip){
 
-        trips.put(name, trip);
+        trips.put(id, trip);
 
     }
 
-    void removeTrip(String name){
+    void removeTrip(String id){
 
-        trips.remove(name);
+        trips.remove(id);
 
     }
 
     public Customer findCustomerByName(String name){
 
-        for (Customer cs : customers){
-            if(cs.getName().equals(name)){
+        for (Customer c : customers){
+            if(c.getName().equals(name)){
                 System.out.println("Found");
                 return cs;
-            }
-            else{
             }
         }
         return null;
     }
 
-    boolean removeCustomer(Customer customer){
-
-        if(findCustomerByName(customer.getName()) != null){
-            customers.remove(findCustomerByName(customer.getName()));
-            System.out.println("Removed");
-            return true;
+    boolean removeCustomer(Customer c){
+        
+        for (c != null){
+            System.out.println("Remove");
+            retrun customers.remove(c);
         }
-        System.out.println("Not a specified customer");
+        System.out.println("Nothing to remove");
         return false;
     }
 }

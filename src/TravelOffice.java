@@ -1,28 +1,56 @@
-import java.util.Arrays;
+import java.util.*;
 
 public class TravelOffice {
 
-    int customerCount = 0;
-    Customer customers[] = new Customer[2];
+    private Set<Customer> customers = new HashSet<>();
+    private Map<String, Trip> trips = new HashMap<>();
 
-    public void addCustomer(Customer customer) {
-        if (customerCount == customers.length) {
-            Customer temp[] = new Customer[customers.length + 2];
-            System.arraycopy(customers, 0, temp, 0, customers.length);
-            customers = temp;
+    public void addCustomer(Customer customer){
+
+        customers.add(customer);
+
+    }
+
+    void showTrip(){
+
+        for (Customer cs : customers){
+            System.out.println(cs.toString());
         }
-        customers[customerCount++] = customer;
     }
 
-    public int getCustomerCount() {
-        return customerCount;
+    void addTrip(String name, Trip trip){
+
+        trips.put(name, trip);
+
     }
 
-    @Override
-    public String toString() {
-        return "TravelOffice{" +
-                "customerCount=" + customerCount +
-                ", customers=" + Arrays.toString(customers) +
-                '}';
+    void removeTrip(String name){
+
+        trips.remove(name);
+
+    }
+
+    public Customer findCustomerByName(String name){
+
+        for (Customer cs : customers){
+            if(cs.getName().equals(name)){
+                System.out.println("Found");
+                return cs;
+            }
+            else{
+            }
+        }
+        return null;
+    }
+
+    boolean removeCustomer(Customer customer){
+
+        if(findCustomerByName(customer.getName()) != null){
+            customers.remove(findCustomerByName(customer.getName()));
+            System.out.println("Removed");
+            return true;
+        }
+        System.out.println("Not a specified customer");
+        return false;
     }
 }
